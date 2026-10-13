@@ -70,6 +70,17 @@ aside {
 #jogador1 h2 { transform: rotate(90deg); transform-origin: center center; margin-left: -100px; }
 #jogador1 p { margin-left: -80px; }
 
+#jogador1.vencedor {
+    outline: solid 150px #1b87e3;
+    box-shadow: 0px 0px 0px 400px #007be3;
+}
+
+#jogador1 #mensagem-vitoria {
+    transform: rotate(90deg);
+    margin-left: 90px;
+    font-size: 90px;
+}
+
 #jogador2 { 
     flex-direction: row-reverse; right: 0;
     background-color: var(--cor-secundaria);
@@ -79,6 +90,17 @@ aside {
 
 #jogador2 h2 { transform: rotate(-90deg); transform-origin: center center; margin-right: -100px; }
 #jogador2 p { margin-right: -80px; }
+
+#jogador2.vencedor {
+    outline: solid 150px #D93134;
+    box-shadow: 0px 0px 0px 400px #CE1A1D;
+}
+
+#jogador2 #mensagem-vitoria {
+    transform: rotate(-90deg);
+    margin-right: 90px;
+    font-size: 90px;
+}
 
 /* ----------- Grade do Jogo da Velha ----------- */
 figure {
