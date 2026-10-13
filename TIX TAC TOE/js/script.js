@@ -90,18 +90,28 @@ function pegarIcone(area) {
 // Função para Mostrar o Resultado
 function mostrarResultado(resultado) {
     if (resultado == "o") {
-        alert("O Círculo Ganhou!");
+        const vencedor = document.querySelector("#jogador2");
+        vencedor.classList.add("vencedor");
+
         const placarO = document.querySelector("#jogador2 > p");
         placarO.textContent = Number(placarO.textContent) + 1;
     } else if (resultado == "x") {
-        alert("O X Ganhou!");
+        const vencedor = document.querySelector("#jogador1");
+        vencedor.classList.add("vencedor");
+
         const placarX = document.querySelector("#jogador1 > p");
         placarX.textContent = Number(placarX.textContent) + 1;
     } else {
         alert("O jogo empatou!");
     }
 
-    resetarTabuleiro();
+    setTimeout(function() {
+        const placares = document.querySelectorAll("aside");
+        placares.forEach(function(placar) {
+            placar.classList.remove("vencedor");
+        });
+    }, 1500);
+    setTimeout(resetarTabuleiro, 2700);
 }
 
 // Função para Reiniciar o Jogo da Velha
