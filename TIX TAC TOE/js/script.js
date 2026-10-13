@@ -45,12 +45,14 @@ function verificarResultado(areas) {
                 && pegarIcone(matrizElementos[j][1]) == icones[i]
                 && pegarIcone(matrizElementos[j][2]) == icones[i]) {
                     mostrarResultado(icones[i].substring(6));
+                    return;
                 }
             
             if (pegarIcone(matrizElementos[0][j]) == icones[i]
                 && pegarIcone(matrizElementos[1][j]) == icones[i]
                 && pegarIcone(matrizElementos[2][j]) == icones[i]) {
                     mostrarResultado(icones[i].substring(6));
+                    return;
                 }
         }
 
@@ -58,16 +60,26 @@ function verificarResultado(areas) {
             && pegarIcone(matrizElementos[1][1]) == icones[i]
             && pegarIcone(matrizElementos[2][2]) == icones[i]) {
                 mostrarResultado(icones[i].substring(6));
+                return;
             }
 
         if (pegarIcone(matrizElementos[0][2]) == icones[i]
             && pegarIcone(matrizElementos[1][1]) == icones[i]
             && pegarIcone(matrizElementos[2][0]) == icones[i]) {
                 mostrarResultado(icones[i].substring(6));
+                return;
             }
     }
 
-    mostrarResultado("e");
+    let empatou = true;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (matrizElementos[i][j].innerHTML == "")
+                empatou = false;
+        }
+    }
+    if (empatou)
+        mostrarResultado("e");
 }
 
 // Função para Pegar o Nome do Ícone da Área da Grade
