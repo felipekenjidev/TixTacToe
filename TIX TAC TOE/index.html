@@ -11,15 +11,31 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <h1>
+    <section>
         <img src="images/logo_tixtactoe.png" alt="TixTacToe">
-    </h1>
+        <p>ESCOLHA OS SEUS JOGADORES</p>
+        <form>
+            <div>
+                <label>JOGADOR 1:</label>
+                <input type="text" name="txtJogador1" id="input-jogador1" placeholder="Digite o nome do jogador">
+            </div>
+            <div>
+                <label>JOGADOR 2:</label>
+                <input type="text" name="txtJogador2" id="input-jogador2" placeholder="Digite o nome do jogador">
+            </div>
+            <button type="submit">COMEÇAR</button>
+        </form>
+    </section>
 
+    <div id="fundo-jogador1" class="tela-fundo"></div>
+    <div id="fundo-jogador2" class="tela-fundo"></div>
+
+    <img src="images/logo_tixtactoe.png" alt="TixTacToe">
     <main>
         <aside id="jogador1" class="placar-pontuacao">
-            <h2>JOGADOR 1</h2>
-            <p id="placar">0</p>
-            <p id="mensagem-vitoria">GANHOU!</p>
+            <p class="nome-jogador">JOGADOR 1</p>
+            <p class="placar">0</p>
+            <p class="mensagem-vitoria">GANHOU!</p>
         </aside>
     
         <figure>
@@ -42,9 +58,9 @@
         </figure>
     
         <aside id="jogador2" class="placar-pontuacao">
-            <h2>JOGADOR 2</h2>
-            <p id="placar">0</p>
-            <p id="mensagem-vitoria">GANHOU!</p>
+            <p class="nome-jogador">JOGADOR 2</p>
+            <p class="placar">0</p>
+            <p class="mensagem-vitoria">GANHOU!</p>
         </aside>
     </main>
 
