@@ -58,7 +58,12 @@ aside {
     transform: translateY(-50%);
 
     width: 500px; height: 700px;
-    transition: outline 0.5s ease-in, box-shadow 1s ease-out;
+    outline: solid 1px transparent;
+    transition: outline 0.7s ease-out 0.1s, box-shadow 0.8s ease-out;
+}
+
+.vencedor {
+    transition: outline 0.5s ease-out, box-shadow 1s ease-out;
 }
 
 #jogador1 {
