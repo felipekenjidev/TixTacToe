@@ -119,6 +119,8 @@ aside {
     transition: outline 0.7s ease-out 0.1s, box-shadow 0.8s ease-out;
 }
 
+.placar { text-align: center; min-width: 95px; }
+
 .vencedor {
     transition: outline 0.5s ease-out, box-shadow 1s ease-out;
 }
@@ -130,8 +132,7 @@ aside {
     padding-left: 300px; margin-left: -300px;
 }
 
-#jogador1 .nome-jogador { transform: rotate(90deg); transform-origin: center center; margin-left: -100px; }
-#jogador1 .placar { margin-left: -80px; }
+#jogador1 .nome-jogador { writing-mode: sideways-rl; margin-left: 20px; }
 
 #jogador1.vencedor {
     outline: solid 150px #1b87e3;
@@ -151,8 +152,7 @@ aside {
     padding-right: 300px; margin-right: -300px;
 }
 
-#jogador2 .nome-jogador { transform: rotate(-90deg); transform-origin: center center; margin-right: -100px; }
-#jogador2 .placar { margin-right: -80px; }
+#jogador2 .nome-jogador { writing-mode: sideways-lr; margin-right: 20px; }
 
 #jogador2.vencedor {
     outline: solid 150px #D93134;
