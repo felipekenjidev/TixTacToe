@@ -71,10 +71,15 @@ form button {
     width: 50vw; height: 100vh; 
     position: absolute;
     top: 0; z-index: 1;
+
+    transition: all 1s ease-out;
 }
 
 #fundo-jogador1 { background-color: var(--cor-primaria); left: 0; }
 #fundo-jogador2 { background-color: var(--cor-secundaria); right: 0; }
+
+#fundo-jogador1.sem-fundo { left: -50vw; }
+#fundo-jogador2.sem-fundo { right: -50vw; }
 
 /* -------- Título e Placar de Pontuação -------- */
 body > img {

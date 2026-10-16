@@ -93,13 +93,13 @@ function mostrarResultado(resultado) {
         const vencedor = document.querySelector("#jogador2");
         vencedor.classList.add("vencedor");
 
-        const placarO = document.querySelector("#jogador2 > p");
+        const placarO = document.querySelector("#jogador2 > .placar");
         placarO.textContent = Number(placarO.textContent) + 1;
     } else if (resultado == "x") {
         const vencedor = document.querySelector("#jogador1");
         vencedor.classList.add("vencedor");
 
-        const placarX = document.querySelector("#jogador1 > p");
+        const placarX = document.querySelector("#jogador1 > .placar");
         placarX.textContent = Number(placarX.textContent) + 1;
     } else {
         alert("O jogo empatou!");
@@ -120,3 +120,26 @@ function resetarTabuleiro() {
         area.innerHTML = "";
     });
 }
+
+// Função para Começar Jogo
+const formulario = document.querySelector("form");
+
+formulario.addEventListener("submit", function(ev) {
+    ev.preventDefault();
+
+    const nomeJogador1 = document.querySelector("#input-jogador1").value.trim();
+    const localJogador1 = document.querySelector("#jogador1 .nome-jogador");
+    localJogador1.textContent = nomeJogador1;
+
+    const nomeJogador2 = document.querySelector("#input-jogador2").value.trim();
+    const localJogador2 = document.querySelector("#jogador2 .nome-jogador");
+    localJogador2.textContent = nomeJogador2;
+
+    const fundos = document.querySelectorAll(".tela-fundo");
+    fundos.forEach(function(fundo) {
+        fundo.classList.add("sem-fundo");
+    });
+
+    const caixaFormulario = document.querySelector("section");
+    caixaFormulario.setAttribute("style", "display: none;");
+})
