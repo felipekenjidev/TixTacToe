@@ -24,7 +24,7 @@ body {
 }
 
 /* ----------- Formulário de Jogador ------------ */
-section {
+#caixa-formulario {
     position: absolute;
     top: 50%; left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -39,7 +39,7 @@ section {
     padding: 30px;
 }
 
-section p { font-size: 30px; font-weight: 900; }
+#caixa-formulario p { font-size: 30px; font-weight: 900; }
 
 form {
     display: flex; flex-flow: column wrap;
@@ -91,6 +91,19 @@ body > img {
 img {
     width: 300px;
 }
+
+#mensagem {
+    position: fixed;
+    bottom: 65px; left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 34px; font-weight: 900;
+    text-transform: uppercase;
+}
+
+#mensagem.vez-jogador1 { color: var(--cor-primaria); }
+#mensagem.vez-jogador2 { color: var(--cor-secundaria); }
+#mensagem.empatou { color: var(--cor-cinza); }
 
 .placar-pontuacao p {
     color: var(--cor-clara);

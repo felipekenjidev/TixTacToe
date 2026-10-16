@@ -1,6 +1,7 @@
 // Selecionar os Elementos da Grade do Jogo da Velha
 const areas = document.querySelectorAll(".area-grade");
-let turnoCirculo = true;
+const mensagem = document.querySelector("#mensagem");
+let turnoCirculo = false;
 let bloqueado = false;
 
 // Criar o Evento de Clique na Grade
@@ -12,11 +13,17 @@ areas.forEach(function(area) {
                 area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-o">
                                     <circle class="circulo-animado" cx="75" cy="75" r="67" />
                                 </svg>`;
+                let nomeJogador = document.querySelector("#jogador1 .nome-jogador").textContent;
+                mensagem.textContent = `A vez é do ${nomeJogador}`;
+                mensagem.setAttribute("class", "vez-jogador1");
             } else {
                 area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-x">
                                     <path d="M 15 15 L 135 135" />
                                     <path d="M 135 15 L 15 135" />
                                 </svg>`;
+                let nomeJogador = document.querySelector("#jogador2 .nome-jogador").textContent;
+                mensagem.textContent = `A vez é do ${nomeJogador}`;
+                mensagem.setAttribute("class", "vez-jogador2");
             }
             
             // Passar o Turno para o Próximo Jogador
@@ -106,8 +113,9 @@ function mostrarResultado(resultado) {
         const placarX = document.querySelector("#jogador1 > .placar");
         placarX.textContent = Number(placarX.textContent) + 1;
     } else {
-        // O Jogo Empatou!
-        tempo = 1500;
+        mensagem.textContent = "EMPATOU!";
+        mensagem.setAttribute("class", "empatou");
+        tempo = 2200;
     }
 
     setTimeout(function() {
@@ -126,6 +134,18 @@ function resetarTabuleiro() {
     });
 
     bloqueado = false;
+
+    if (mensagem.classList.contains("empatou")) {
+        if (turnoCirculo) {
+            let nomeJogador = document.querySelector("#jogador2 .nome-jogador").textContent;
+            mensagem.textContent = `A vez é do ${nomeJogador}`;
+            mensagem.setAttribute("class", "vez-jogador2");
+        } else {
+            let nomeJogador = document.querySelector("#jogador1 .nome-jogador").textContent;
+            mensagem.textContent = `A vez é do ${nomeJogador}`;
+            mensagem.setAttribute("class", "vez-jogador1");
+        }
+    }
 }
 
 // Função para Começar Jogo
@@ -137,6 +157,7 @@ formulario.addEventListener("submit", function(ev) {
     const nomeJogador1 = document.querySelector("#input-jogador1").value.trim();
     const localJogador1 = document.querySelector("#jogador1 .nome-jogador");
     localJogador1.textContent = nomeJogador1 != "" ? nomeJogador1 : "Jogador 1";
+    mensagem.textContent = `A vez é do ${nomeJogador1 != "" ? nomeJogador1 : "Jogador 1"}`;
 
     const nomeJogador2 = document.querySelector("#input-jogador2").value.trim();
     const localJogador2 = document.querySelector("#jogador2 .nome-jogador");
@@ -147,6 +168,6 @@ formulario.addEventListener("submit", function(ev) {
         fundo.classList.add("sem-fundo");
     });
 
-    const caixaFormulario = document.querySelector("section");
+    const caixaFormulario = document.querySelector("#caixa-formulario");
     caixaFormulario.setAttribute("style", "display: none;");
 })
