@@ -141,7 +141,7 @@ aside {
 
 #jogador1 .mensagem-vitoria {
     transform: rotate(90deg);
-    margin-left: 90px;
+    margin-left: 60px;
     font-size: 90px;
 }
 
@@ -161,7 +161,7 @@ aside {
 
 #jogador2 .mensagem-vitoria {
     transform: rotate(-90deg);
-    margin-right: 90px;
+    margin-right: 60px;
     font-size: 90px;
 }
 

@@ -1,12 +1,13 @@
 // Selecionar os Elementos da Grade do Jogo da Velha
 const areas = document.querySelectorAll(".area-grade");
 let turnoCirculo = true;
+let bloqueado = false;
 
 // Criar o Evento de Clique na Grade
 areas.forEach(function(area) {
     area.addEventListener("click", function() {
         // Adicionar a Forma
-        if (area.firstChild === null) {
+        if (area.firstChild === null && !bloqueado) {
             if (turnoCirculo) {
                 area.innerHTML = `<svg viewBox="0 0 150 150" class="icone-o">
                                     <circle class="circulo-animado" cx="75" cy="75" r="67" />
@@ -89,6 +90,9 @@ function pegarIcone(area) {
 
 // Função para Mostrar o Resultado
 function mostrarResultado(resultado) {
+    bloqueado = true;
+    let tempo = 2200;
+
     if (resultado == "o") {
         const vencedor = document.querySelector("#jogador2");
         vencedor.classList.add("vencedor");
@@ -102,7 +106,8 @@ function mostrarResultado(resultado) {
         const placarX = document.querySelector("#jogador1 > .placar");
         placarX.textContent = Number(placarX.textContent) + 1;
     } else {
-        alert("O jogo empatou!");
+        // O Jogo Empatou!
+        tempo = 1500;
     }
 
     setTimeout(function() {
@@ -111,7 +116,7 @@ function mostrarResultado(resultado) {
             placar.classList.remove("vencedor");
         });
     }, 1500);
-    setTimeout(resetarTabuleiro, 2700);
+    setTimeout(resetarTabuleiro, tempo);
 }
 
 // Função para Reiniciar o Jogo da Velha
@@ -119,6 +124,8 @@ function resetarTabuleiro() {
     areas.forEach(function(area) {
         area.innerHTML = "";
     });
+
+    bloqueado = false;
 }
 
 // Função para Começar Jogo
@@ -129,11 +136,11 @@ formulario.addEventListener("submit", function(ev) {
 
     const nomeJogador1 = document.querySelector("#input-jogador1").value.trim();
     const localJogador1 = document.querySelector("#jogador1 .nome-jogador");
-    localJogador1.textContent = nomeJogador1;
+    localJogador1.textContent = nomeJogador1 != "" ? nomeJogador1 : "Jogador 1";
 
     const nomeJogador2 = document.querySelector("#input-jogador2").value.trim();
     const localJogador2 = document.querySelector("#jogador2 .nome-jogador");
-    localJogador2.textContent = nomeJogador2;
+    localJogador2.textContent = nomeJogador2 != "" ? nomeJogador2 : "Jogador 2";
 
     const fundos = document.querySelectorAll(".tela-fundo");
     fundos.forEach(function(fundo) {
